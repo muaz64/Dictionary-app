@@ -2,7 +2,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #4b7a74,#2d644d);
+    background: linear-gradient(to right, #87d8cd,#58b991);
     font-family: Arial, sans-serif;
 }
 
@@ -10,7 +10,7 @@ body{
     max-width: 600px;
     margin: 200px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #2115cf;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease;
@@ -34,7 +34,7 @@ header{
 }
 
 h1{
-    color: #333;
+    color: #000000;
 }
 
 .search-container{
