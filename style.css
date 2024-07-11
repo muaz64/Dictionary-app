@@ -9,7 +9,7 @@ body {
     max-width: 600px;
     margin: 200px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #a1e0d1;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease;
@@ -52,9 +52,9 @@ input[type="text"] {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #ffa8a8;
+    background-color: #6bd174;
     border: none;
-    color: #fff;
+    color: #ffffff;
     border-radius: 4px;
     margin-left: 10px;
     cursor: pointer;
@@ -63,6 +63,15 @@ button {
 
 button:hover {
     background-color: #f71d1d;
+}
+#reloadButton {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #af4c4c;
+}
+
+#reloadButton:hover {
+    background-color: #49f165;
 }
 
 .resultContainer {

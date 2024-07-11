@@ -1,5 +1,6 @@
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
+const reloadButton = document.getElementById('reloadButton');
 const resultContainer = document.getElementById('result-container');
 const wordTitle = document.getElementById('wordTitle');
 const wordDescription = document.getElementById('wordDescription');
@@ -13,6 +14,10 @@ searchInput.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
         search();
     }
+});
+
+reloadButton.addEventListener("click", () => {
+    reload();
 });
 
 function search() {
@@ -76,6 +81,14 @@ function setLoading(isLoading) {
     } else {
         loading.style.display = 'none';
     }
+}
+
+function reload() {
+    searchInput.value = '';
+    resultContainer.style.display = 'none';
+    wordTitle.textContent = 'Content';
+    wordDescription.textContent = 'Content';
+    setLoading(false);
 }
 
 audioButton.addEventListener("click", () => {
