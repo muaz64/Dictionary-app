@@ -102,6 +102,11 @@ h2 {
     margin-top: 10px;
 }
 
+#banglaDescription {
+    margin-top: 10px;
+    color: #555;
+}
+
 ul {
     list-style: none;
     padding: 0;

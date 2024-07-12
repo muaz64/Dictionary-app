@@ -4,6 +4,7 @@ const reloadButton = document.getElementById('reloadButton');
 const resultContainer = document.getElementById('result-container');
 const wordTitle = document.getElementById('wordTitle');
 const wordDescription = document.getElementById('wordDescription');
+const banglaDescription = document.getElementById('banglaDescription');
 const audioButton = document.getElementById('audioButton');
 
 searchButton.addEventListener("click", () => {
@@ -42,12 +43,37 @@ async function fetchDictionaryData(searchTerm) {
         } else {
             const data = await response.json();
             displayResult(data);
+            fetchBanglaTranslation(searchTerm);
         }
     } catch (error) {
         console.log(error);
         showError('An error occurred while fetching the data.');
     } finally {
         setLoading(false);
+    }
+}
+
+async function fetchBanglaTranslation(searchTerm) {
+    try {
+        const response = await fetch(`https://libretranslate.com/translate/${searchTerm}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                q: searchTerm,
+                source: 'en',
+                target: 'bn'
+            })
+        });
+        if (!response.ok) {
+            throw new Error('Failed to fetch the translation');
+        }
+        const data = await response.json();
+        displayBanglaTranslation(data.translatedText);
+    } catch (error) {
+        console.log(error);
+        banglaDescription.textContent = 'Failed to fetch Bangla meaning';
     }
 }
 
@@ -67,9 +93,14 @@ function displayResult(data) {
     `;
 }
 
+function displayBanglaTranslation(translation) {
+    banglaDescription.textContent = `Bangla: ${translation}`;
+}
+
 function showError(message) {
     wordTitle.textContent = 'Error';
     wordDescription.textContent = message;
+    banglaDescription.textContent = '';
     resultContainer.style.display = 'block';
 }
 
@@ -88,6 +119,7 @@ function reload() {
     resultContainer.style.display = 'none';
     wordTitle.textContent = 'Content';
     wordDescription.textContent = 'Content';
+    banglaDescription.textContent = 'Bangla Meaning';
     setLoading(false);
 }
 
