@@ -14,7 +14,7 @@ A simple **English Dictionary Web Application** built using **HTML**, **CSS**, a
 
 ## 📸 Screenshot  
 
-![Dictionary App Screenshot](./Screenshot_15-12-2024_234912_.jpeg)
+![Dictionary App Screenshot](./Dictionary%20app.jpeg)
 
 ---
 
